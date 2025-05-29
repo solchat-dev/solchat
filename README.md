@@ -1,217 +1,149 @@
-# Solana E2EE Chat - Decentralized Messaging Demo
+# SolChat: Secure & Decentralized Solana Messenger
 
-A privacy-first, decentralized messaging application built on Solana with end-to-end encryption.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Solana](https://img.shields.io/badge/Solana-Blockchain-blueviolet)](https://solana.com)
+[![React](https://img.shields.io/badge/React-UI-blue)](https://reactjs.org)
+[![IPFS](https://img.shields.io/badge/IPFS-Storage-lightgrey)](https://ipfs.tech/)
 
-## 🔐 Features
+SolChat is a secure, decentralized peer-to-peer messaging application built on the Solana blockchain, featuring end-to-end encryption and file sharing capabilities. It allows users to communicate directly and securely using their Solana wallets for authentication.
 
-- **Wallet-Based Identity**: Connect with Phantom, Solflare, or Backpack wallets
-- **End-to-End Encryption**: Messages encrypted with x25519 elliptic curve cryptography
-- **Message Signing**: All messages signed with Solana wallet for authenticity
-- **Decentralized Storage**: Messages stored on Arweave's permanent network
-- **Burner Mode**: Ephemeral messaging with temporary wallets
-- **No Backend**: Fully decentralized architecture
+## Overview
 
-## 🚀 Quick Start
+In an era where digital privacy is paramount, SolChat offers a messaging solution that leverages the power of blockchain technology and decentralized storage. By using Solana for its speed and low transaction costs, and IPFS for distributed file storage, SolChat aims to provide a censorship-resistant and secure communication platform. Messages are end-to-end encrypted, ensuring that only the intended recipients can access the content.
 
-### Prerequisites
+## ✨ Features
 
-- Node.js 18+
-- A Solana wallet extension (Phantom, Solflare, or Backpack)
-- Some SOL for transaction fees (Devnet recommended for testing)
+* 🔐 **Secure Messaging:**
+    * End-to-end encryption using TweetNaCl.js (libsodium-compatible).
+    * Messages stored locally with optional IPFS integration for persistence and decentralization.
+    * Solana wallet-based authentication for verifying user identity.
+* 👥 **User Management:**
+    * Custom usernames and basic profiles.
+    * Recent peers list with activity status indicators.
+    * Nickname support for contacts for easier identification.
 
-### Installation
+* 💫 **Modern UI/UX:**
+    * Real-time message status updates (sending, sent, delivered, read - if implemented).
+    * Responsive design for usability across different devices.
+    * Intuitive peer selection and chat interface.
 
-1. **Clone and install dependencies:**
-   ```bash
-   git clone <repository-url>
-   cd solana-e2ee-chat
-   npm install
-   ```
+## 🛠️ Tech Stack
 
-2. **Start development server:**
-   ```bash
-   npm run dev
-   ```
+* **Frontend:**
+    * React 18 with TypeScript
+    * Tailwind CSS for styling
+    * Vite for fast development and optimized builds
+* **Blockchain Integration:**
+    * Solana Web3.js (`@solana/web3.js`) for interacting with the Solana network.
+    * Solana Wallet Adapter for seamless integration with popular Solana wallets (e.g., Phantom, Solflare).
+* **Storage & Encryption:**
+    * IPFS / Helia (or similar IPFS client library) for decentralized message storage.
+    * TweetNaCl.js for robust end-to-end encryption.
+    * LocalStorage / IndexedDB for persistent client-side data (e.g., messages, user settings, peer list).
 
-3. **Open your browser:**
-   Navigate to `http://localhost:5173`
+## 📋 Prerequisites
 
-### Building for Production
+Before you begin, ensure you have the following installed:
 
-```bash
-npm run build
-npm run preview
-```
+* **Node.js:** Version 18.x or higher. You can download it from [nodejs.org](https://nodejs.org/).
+* **npm/yarn:** Node.js package manager. npm is included with Node.js. Yarn can be installed from [yarnpkg.com](https://yarnpkg.com/).
+* **Git:** For cloning the repository (optional if downloading as a ZIP).
+* **A Solana Wallet:** A browser extension wallet like [Phantom](https://phantom.app/) or [Solflare](https://solflare.com/) is required to interact with the application.
+* **SOL:** A small amount of SOL in your wallet for any potential transaction fees (though SolChat aims to minimize these).
 
-## 🌐 Deployment
+## 🚀 Installation
 
-### Deploy to Netlify
+Follow these steps to get your development environment set up:
 
-1. **Build the project:**
-   ```bash
-   npm run build
-   ```
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/solchat-dev/solchat.git](https://github.com/solchat-dev/solchat.git)
+    cd solchat
+    ```
+    (If the repository URL is different, please use the correct one.)
 
-2. **Upload the `dist` folder manually to Netlify**
+2.  **Install Dependencies:**
+    Using npm:
+    ```bash
+    npm install
+    ```
+    Or using yarn:
+    ```bash
+    yarn install
+    ```
 
-### Deploy to GitHub Pages
+3.  **Set up Environment Variables (if any):**
+    Create a `.env.local` file in the root of the project by copying the example file (if one is provided, e.g., `.env.example`).
+    ```bash
+    cp .env.example .env.local
+    ```
+    Fill in any necessary environment variables, such as RPC endpoints or IPFS gateway details.
+    *Example `.env.local` (contents may vary based on project structure):*
+    ```env
+    VITE_SOLANA_RPC_HOST="[https://api.devnet.solana.com](https://api.devnet.solana.com)" # Or your preferred RPC
+    VITE_IPFS_GATEWAY="[https://ipfs.io/ipfs/](https://ipfs.io/ipfs/)"
+    ```
 
-1. **Install gh-pages:**
-   ```bash
-   npm install --save-dev gh-pages
-   ```
+4.  **Run the Development Server:**
+    Using npm:
+    ```bash
+    npm run dev
+    ```
+    Or using yarn:
+    ```bash
+    yarn dev
+    ```
+    This will typically start the application on `http://localhost:5173` (Vite's default) or another specified port.
 
-2. **Add to package.json scripts:**
-   ```json
-   "deploy:gh": "npm run build && gh-pages -d dist"
-   ```
+## ▶️ Usage
 
-3. **Deploy:**
-   ```bash
-   npm run deploy:gh
-   ```
+Once the application is running:
 
-## 🔧 Configuration
+1.  **Connect Wallet:**
+    * Open the application in your browser.
+    * Click on the "Connect Wallet" or "Select Wallet" button.
+    * Choose your preferred Solana wallet (e.g., Phantom) and approve the connection.
 
-### Environment Variables
+2.  **Set Up Profile (if first time):**
+    * You might be prompted to set up a username or profile information upon first connection.
 
-Create a `.env` file for production configuration:
+3.  **Start Messaging:**
+    * **Select a Peer:** Enter the Solana address of the recipient or select a user from your recent peers/contacts list.
+    * **Compose Message:** Type your message in the input field.
+    * **Send:** Click the send button. The message will be encrypted and transmitted.
 
-```env
-VITE_SOLANA_NETWORK=mainnet-beta
-VITE_ARWEAVE_GATEWAY=https://arweave.net
-```
+4.  **Manage Contacts/Peers:**
+    * Access the contacts or recent peers section (e.g., via a user icon).
+    * Add nicknames to known addresses for easier recognition.
+    * View activity status if implemented.
 
-### Wallet Configuration
 
-The app automatically detects installed wallet extensions. Supported wallets:
+## 🛡️ Security Features
 
-- **Phantom**: `window.solana`
-- **Solflare**: `window.solflare`
-- **Backpack**: `window.backpack`
+* **End-to-End Encryption:** All messages are encrypted using TweetNaCl's `box` (public-key authenticated encryption). Only the sender and recipient, with their respective secret keys, can decrypt messages.
+* **Wallet-Based Authentication:** User identity is tied to their Solana wallet address, ensuring message integrity and authenticity.
+* **Decentralized Storage (IPFS):** Messages are stored on IPFS, making them censorship-resistant and not reliant on central servers.
+* **Privacy-Focused:** Aims for direct peer-to-peer communication principles, minimizing central points of failure or data collection.
 
-## 🏗️ Architecture
+## 🖼️ Screenshots / Demo
 
-### Core Components
+*(Consider adding screenshots of the application in action here. For example:)*
+* `![Login Screen](https://gyazo.com/c5a76aa731e88dbc53e88f8913fe241a.png)`
+* `![Chat Interface](https://gyazo.com/af3d60773e21a27dc2aacd4edfb4620a.png)`
 
-- **WalletConnection**: Handles wallet detection and connection
-- **ChatInterface**: Main messaging UI with encryption/decryption
-- **BurnerWallet**: Temporary wallet generation for ephemeral messaging
-- **EncryptionService**: x25519 encryption/decryption using TweetNaCl
-- **ArweaveService**: Decentralized storage integration
-- **SolanaService**: Wallet interaction and message signing
 
-### Security Features
+Please ensure your code adheres to the project's coding standards and includes tests where appropriate.
 
-1. **x25519 Encryption**: Elliptic curve Diffie-Hellman key exchange
-2. **Message Signing**: Ed25519 signatures via Solana wallets
-3. **Key Derivation**: Deterministic encryption keys from Solana public keys
-4. **Ephemeral Keys**: Per-message ephemeral key pairs for forward secrecy
+## 📜 License
 
-### Storage Architecture
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details. (If you don't have a LICENSE.md, you should add one. The MIT license is a common choice for open-source projects.)
 
-- **Local**: Temporary message cache in browser storage
-- **Arweave**: Permanent decentralized storage for message history
-- **Burner Mode**: Messages not persisted beyond session
+## 🙏 Acknowledgments
 
-## 🧪 Testing
+* **Solana Foundation:** For providing the robust and scalable blockchain infrastructure.
+* **IPFS/Protocol Labs:** For the decentralized storage technology.
+* **TweetNaCl.js Authors:** For the reliable and easy-to-use cryptographic library.
+* The broader Web3 and open-source community for inspiration and tools.
 
-### Manual Testing Checklist
-
-1. **Wallet Connection**:
-   - [ ] Connect Phantom wallet
-   - [ ] Connect Solflare wallet  
-   - [ ] Connect Backpack wallet
-   - [ ] Disconnect wallet
-
-2. **Messaging**:
-   - [ ] Send encrypted message
-   - [ ] Receive and decrypt message
-   - [ ] Verify message signatures
-   - [ ] Test with invalid recipient address
-
-3. **Burner Mode**:
-   - [ ] Generate burner wallet
-   - [ ] Send ephemeral messages
-   - [ ] Verify messages don't persist
-
-4. **Storage**:
-   - [ ] Verify Arweave transaction IDs
-   - [ ] Test message persistence
-   - [ ] Test cross-session message loading
-
-### Demo Scenarios
-
-1. **Basic Chat**: Two users with regular wallets exchanging messages
-2. **Burner Chat**: One user with burner wallet for anonymous messaging  
-3. **Cross-Platform**: Test different wallet combinations
-4. **Message History**: Verify message persistence and loading
-
-## 🔒 Security Considerations
-
-### Production Recommendations
-
-1. **Key Derivation**: Implement proper HKDF for key derivation from Solana keys
-2. **Signature Verification**: Add full Ed25519 signature verification
-3. **Rate Limiting**: Implement client-side rate limiting for message sending
-4. **Input Validation**: Sanitize all user inputs and wallet addresses
-5. **Error Handling**: Avoid leaking sensitive information in error messages
-
-### Known Limitations
-
-- Demo uses simplified key derivation (use proper KDF in production)
-- Arweave integration is mocked (implement real Arweave SDK)
-- No message ordering guarantees across different storage layers
-- Burner wallets are not funded (manual funding required for transactions)
-
-## 📚 API Reference
-
-### EncryptionService
-
-```ts
-// Encrypt message for recipient
-await encryptionService.encryptMessage(message: string, recipientAddress: string): Promise<string>
-
-// Decrypt received message  
-await encryptionService.decryptMessage(encryptedMessage: string, walletAddress: string): Promise<string>
-```
-
-### ArweaveService
-
-```ts
-// Store message on Arweave
-await arweaveService.storeMessage(message: ChatMessage): Promise<string>
-
-// Load messages for wallet
-await arweaveService.loadMessagesForWallet(walletAddress: string): Promise<void>
-```
-
-### SolanaService
-
-```ts
-// Connect wallet
-await solanaService.connect(walletId: string): Promise<void>
-
-// Sign message
-await solanaService.signMessage(message: string): Promise<string>
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit changes: `git commit -am 'Add feature'`
-4. Push to branch: `git push origin feature-name`
-5. Submit a pull request
-
-## 📄 License
-
-MIT License - see LICENSE file for details
-
-## 🆘 Support
-
-- **Issues**: GitHub Issues for bug reports
-- **Discussions**: GitHub Discussions for questions
 ---
 
-**⚠️ Disclaimer**: This is a demo application for educational purposes. Do not use for sensitive communications without a proper security audit.
+*This README is a template. Please update it with specific details relevant to your `solchat-dev/solchat` repository, especially the repository URL, environment variable names, and any project-specific instructions.*
