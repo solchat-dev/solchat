@@ -124,11 +124,6 @@ Once the application is running:
 * **Decentralized Storage (IPFS):** Messages are stored on IPFS, making them censorship-resistant and not reliant on central servers.
 * **Privacy-Focused:** Aims for direct peer-to-peer communication principles, minimizing central points of failure or data collection.
 
-## 🖼️ Screenshots / Demo
-
-* `![Login Screen](./screenshots/Login.png)`
-* `![Chat Interface](./screenshots/ChatBubble.png)`
-
 
 Please ensure your code adheres to the project's coding standards and includes tests where appropriate.
 
@@ -144,5 +139,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * The broader Web3 and open-source community for inspiration and tools.
 
 ---
-
-*This README is a template. Please update it with specific details relevant to your `solchat-dev/solchat` repository, especially the repository URL, environment variable names, and any project-specific instructions.*
