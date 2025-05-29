@@ -124,9 +124,6 @@ Once the application is running:
 * **Decentralized Storage (IPFS):** Messages are stored on IPFS, making them censorship-resistant and not reliant on central servers.
 * **Privacy-Focused:** Aims for direct peer-to-peer communication principles, minimizing central points of failure or data collection.
 
-
-Please ensure your code adheres to the project's coding standards and includes tests where appropriate.
-
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details. (If you don't have a LICENSE.md, you should add one. The MIT license is a common choice for open-source projects.)
