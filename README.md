@@ -126,9 +126,8 @@ Once the application is running:
 
 ## 🖼️ Screenshots / Demo
 
-*(Consider adding screenshots of the application in action here. For example:)*
-* `![Login Screen](https://gyazo.com/c5a76aa731e88dbc53e88f8913fe241a.png)`
-* `![Chat Interface](https://gyazo.com/af3d60773e21a27dc2aacd4edfb4620a.png)`
+* `![Login Screen](https://i.gyazo.com/c5a76aa731e88dbc53e88f8913fe241a.png)`
+* `![Chat Interface](https://i.gyazo.com/af3d60773e21a27dc2aacd4edfb4620a.png)`
 
 
 Please ensure your code adheres to the project's coding standards and includes tests where appropriate.
